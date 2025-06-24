@@ -1,0 +1,2896 @@
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\pom.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>br.ufsm.csi</groupId>
+	<artifactId>aula-spring-mvc</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>aula-spring-mvc</name>
+	<description>aula-spring-mvc</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+<!--			<scope>provided</scope>-->
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\mvnw.cmd:
+<# : batch portion
+@REM ----------------------------------------------------------------------------
+@REM Licensed to the Apache Software Foundation (ASF) under one
+@REM or more contributor license agreements.  See the NOTICE file
+@REM distributed with this work for additional information
+@REM regarding copyright ownership.  The ASF licenses this file
+@REM to you under the Apache License, Version 2.0 (the
+@REM "License"); you may not use this file except in compliance
+@REM with the License.  You may obtain a copy of the License at
+@REM
+@REM    http://www.apache.org/licenses/LICENSE-2.0
+@REM
+@REM Unless required by applicable law or agreed to in writing,
+@REM software distributed under the License is distributed on an
+@REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+@REM KIND, either express or implied.  See the License for the
+@REM specific language governing permissions and limitations
+@REM under the License.
+@REM ----------------------------------------------------------------------------
+
+@REM ----------------------------------------------------------------------------
+@REM Apache Maven Wrapper startup batch script, version 3.3.2
+@REM
+@REM Optional ENV vars
+@REM   MVNW_REPOURL - repo url base for downloading maven distribution
+@REM   MVNW_USERNAME/MVNW_PASSWORD - user and password for downloading maven
+@REM   MVNW_VERBOSE - true: enable verbose log; others: silence the output
+@REM ----------------------------------------------------------------------------
+
+@IF "%__MVNW_ARG0_NAME__%"=="" (SET __MVNW_ARG0_NAME__=%~nx0)
+@SET __MVNW_CMD__=
+@SET __MVNW_ERROR__=
+@SET __MVNW_PSMODULEP_SAVE=%PSModulePath%
+@SET PSModulePath=
+@FOR /F "usebackq tokens=1* delims==" %%A IN (`powershell -noprofile "& {$scriptDir='%~dp0'; $script='%__MVNW_ARG0_NAME__%'; icm -ScriptBlock ([Scriptblock]::Create((Get-Content -Raw '%~f0'))) -NoNewScope}"`) DO @(
+  IF "%%A"=="MVN_CMD" (set __MVNW_CMD__=%%B) ELSE IF "%%B"=="" (echo %%A) ELSE (echo %%A=%%B)
+)
+@SET PSModulePath=%__MVNW_PSMODULEP_SAVE%
+@SET __MVNW_PSMODULEP_SAVE=
+@SET __MVNW_ARG0_NAME__=
+@SET MVNW_USERNAME=
+@SET MVNW_PASSWORD=
+@IF NOT "%__MVNW_CMD__%"=="" (%__MVNW_CMD__% %*)
+@echo Cannot start maven from wrapper >&2 && exit /b 1
+@GOTO :EOF
+: end batch / begin powershell #>
+
+$ErrorActionPreference = "Stop"
+if ($env:MVNW_VERBOSE -eq "true") {
+  $VerbosePreference = "Continue"
+}
+
+# calculate distributionUrl, requires .mvn/wrapper/maven-wrapper.properties
+$distributionUrl = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionUrl
+if (!$distributionUrl) {
+  Write-Error "cannot read distributionUrl property in $scriptDir/.mvn/wrapper/maven-wrapper.properties"
+}
+
+switch -wildcard -casesensitive ( $($distributionUrl -replace '^.*/','') ) {
+  "maven-mvnd-*" {
+    $USE_MVND = $true
+    $distributionUrl = $distributionUrl -replace '-bin\.[^.]*$',"-windows-amd64.zip"
+    $MVN_CMD = "mvnd.cmd"
+    break
+  }
+  default {
+    $USE_MVND = $false
+    $MVN_CMD = $script -replace '^mvnw','mvn'
+    break
+  }
+}
+
+# apply MVNW_REPOURL and calculate MAVEN_HOME
+# maven home pattern: ~/.m2/wrapper/dists/{apache-maven-<version>,maven-mvnd-<version>-<platform>}/<hash>
+if ($env:MVNW_REPOURL) {
+  $MVNW_REPO_PATTERN = if ($USE_MVND) { "/org/apache/maven/" } else { "/maven/mvnd/" }
+  $distributionUrl = "$env:MVNW_REPOURL$MVNW_REPO_PATTERN$($distributionUrl -replace '^.*'+$MVNW_REPO_PATTERN,'')"
+}
+$distributionUrlName = $distributionUrl -replace '^.*/',''
+$distributionUrlNameMain = $distributionUrlName -replace '\.[^.]*$','' -replace '-bin$',''
+$MAVEN_HOME_PARENT = "$HOME/.m2/wrapper/dists/$distributionUrlNameMain"
+if ($env:MAVEN_USER_HOME) {
+  $MAVEN_HOME_PARENT = "$env:MAVEN_USER_HOME/wrapper/dists/$distributionUrlNameMain"
+}
+$MAVEN_HOME_NAME = ([System.Security.Cryptography.MD5]::Create().ComputeHash([byte[]][char[]]$distributionUrl) | ForEach-Object {$_.ToString("x2")}) -join ''
+$MAVEN_HOME = "$MAVEN_HOME_PARENT/$MAVEN_HOME_NAME"
+
+if (Test-Path -Path "$MAVEN_HOME" -PathType Container) {
+  Write-Verbose "found existing MAVEN_HOME at $MAVEN_HOME"
+  Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
+  exit $?
+}
+
+if (! $distributionUrlNameMain -or ($distributionUrlName -eq $distributionUrlNameMain)) {
+  Write-Error "distributionUrl is not valid, must end with *-bin.zip, but found $distributionUrl"
+}
+
+# prepare tmp dir
+$TMP_DOWNLOAD_DIR_HOLDER = New-TemporaryFile
+$TMP_DOWNLOAD_DIR = New-Item -Itemtype Directory -Path "$TMP_DOWNLOAD_DIR_HOLDER.dir"
+$TMP_DOWNLOAD_DIR_HOLDER.Delete() | Out-Null
+trap {
+  if ($TMP_DOWNLOAD_DIR.Exists) {
+    try { Remove-Item $TMP_DOWNLOAD_DIR -Recurse -Force | Out-Null }
+    catch { Write-Warning "Cannot remove $TMP_DOWNLOAD_DIR" }
+  }
+}
+
+New-Item -Itemtype Directory -Path "$MAVEN_HOME_PARENT" -Force | Out-Null
+
+# Download and Install Apache Maven
+Write-Verbose "Couldn't find MAVEN_HOME, downloading and installing it ..."
+Write-Verbose "Downloading from: $distributionUrl"
+Write-Verbose "Downloading to: $TMP_DOWNLOAD_DIR/$distributionUrlName"
+
+$webclient = New-Object System.Net.WebClient
+if ($env:MVNW_USERNAME -and $env:MVNW_PASSWORD) {
+  $webclient.Credentials = New-Object System.Net.NetworkCredential($env:MVNW_USERNAME, $env:MVNW_PASSWORD)
+}
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$webclient.DownloadFile($distributionUrl, "$TMP_DOWNLOAD_DIR/$distributionUrlName") | Out-Null
+
+# If specified, validate the SHA-256 sum of the Maven distribution zip file
+$distributionSha256Sum = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionSha256Sum
+if ($distributionSha256Sum) {
+  if ($USE_MVND) {
+    Write-Error "Checksum validation is not supported for maven-mvnd. `nPlease disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties."
+  }
+  Import-Module $PSHOME\Modules\Microsoft.PowerShell.Utility -Function Get-FileHash
+  if ((Get-FileHash "$TMP_DOWNLOAD_DIR/$distributionUrlName" -Algorithm SHA256).Hash.ToLower() -ne $distributionSha256Sum) {
+    Write-Error "Error: Failed to validate Maven distribution SHA-256, your Maven distribution might be compromised. If you updated your Maven version, you need to update the specified distributionSha256Sum property."
+  }
+}
+
+# unzip and move
+Expand-Archive "$TMP_DOWNLOAD_DIR/$distributionUrlName" -DestinationPath "$TMP_DOWNLOAD_DIR" | Out-Null
+Rename-Item -Path "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain" -NewName $MAVEN_HOME_NAME | Out-Null
+try {
+  Move-Item -Path "$TMP_DOWNLOAD_DIR/$MAVEN_HOME_NAME" -Destination $MAVEN_HOME_PARENT | Out-Null
+} catch {
+  if (! (Test-Path -Path "$MAVEN_HOME" -PathType Container)) {
+    Write-Error "fail to move MAVEN_HOME"
+  }
+} finally {
+  try { Remove-Item $TMP_DOWNLOAD_DIR -Recurse -Force | Out-Null }
+  catch { Write-Warning "Cannot remove $TMP_DOWNLOAD_DIR" }
+}
+
+Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
+
+
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\.idea\compiler.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="aula-spring-mvc" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aula-spring-mvc" options="-parameters" />
+    </option>
+  </component>
+</project>.
+.
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\.idea\encodings.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+  </component>
+</project>.
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\.idea\jarRepositories.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+  </component>
+</project>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\.idea\misc.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\.idea\uiDesigner.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Palette2">
+    <group name="Swing">
+      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
+      </item>
+      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
+      </item>
+      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
+      </item>
+      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
+        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
+      </item>
+      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
+        <initial-values>
+          <property name="text" value="Button" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+        <initial-values>
+          <property name="text" value="RadioButton" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+        <initial-values>
+          <property name="text" value="CheckBox" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
+        <initial-values>
+          <property name="text" value="Label" />
+        </initial-values>
+      </item>
+      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+          <preferred-size width="150" height="-1" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+          <preferred-size width="150" height="-1" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+          <preferred-size width="150" height="-1" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
+      </item>
+      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+          <preferred-size width="150" height="50" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+          <preferred-size width="200" height="200" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+          <preferred-size width="200" height="200" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+      </item>
+      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+      </item>
+      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
+      </item>
+      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
+      </item>
+      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
+          <preferred-size width="-1" height="20" />
+        </default-constraints>
+      </item>
+      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
+      </item>
+      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
+      </item>
+    </group>
+  </component>
+</project>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\.idea\workspace.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb76bbcb-4dc1-4ed1-841d-d2b9e8717c9c" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2yxmQ8bBM2Fu5GE2EXrwnNzXADI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.AulaSpringMvcApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Cliente/Desktop/NICOLE/UFSM/spi ufsm/[03] POO WEB I/aula-spring-mvc/src/main/WEB-INF/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\WEB-INF\views" />
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main" />
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp" />
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main" />
+      <recent name="C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\resources" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="br.ufsm.csi.aulaspringmvc.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AulaSpringMvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="aula-spring-mvc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.ufsm.csi.aulaspringmvc.AulaSpringMvcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb76bbcb-4dc1-4ed1-841d-d2b9e8717c9c" name="Changes" comment="" />
+      <created>1750784582377</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750784582377</updated>
+      <workItem from="1750784583212" duration="6892000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\AulaSpringMvcApplication.java:
+package br.ufsm.csi.aulaspringmvc;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class AulaSpringMvcApplication extends SpringBootServletInitializer {
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(AulaSpringMvcApplication.class);
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(AulaSpringMvcApplication.class, args);
+	}
+
+}
+
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\AutorController.java:
+package br.ufsm.csi.aulaspringmvc.controller;
+
+import br.ufsm.csi.aulaspringmvc.dao.AutorDAO;
+import br.ufsm.csi.aulaspringmvc.model.Autor;
+import br.ufsm.csi.aulaspringmvc.model.Usuario;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+@WebServlet("/autores")
+public class AutorController extends HttpServlet {
+    private final AutorDAO autorDAO = new AutorDAO();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        if (usuario.getTipo_us().equals("USUARIO")) {
+            req.setAttribute("mensagemAcessoNegado", "Você não tem acesso a essa página.");
+            req.getRequestDispatcher("/WEB-INF/acessoNegado.jsp").forward(req, resp);
+            return;
+        }
+
+        String acao = req.getParameter("acao");
+        if (acao != null && acao.equals("novo")) {
+            req.getRequestDispatcher("/WEB-INF/autor/editar.jsp").forward(req, resp);
+            return;
+        }
+
+        if (acao != null && acao.equals("editar")) {
+            int id = Integer.parseInt(req.getParameter("id"));
+            Autor autor = autorDAO.getAutorById(id);
+            req.setAttribute("autorEdicao", autor);
+            req.getRequestDispatcher("/WEB-INF/autor/editar.jsp").forward(req, resp);
+            return;
+        }
+
+        if (acao != null && acao.equals("excluir")) {
+            int id = Integer.parseInt(req.getParameter("id"));
+            String resultado = autorDAO.excluir(id);
+            req.getSession().setAttribute("mensagem", resultado);
+            resp.sendRedirect(req.getContextPath() + "/autores");
+            return;
+        }
+
+        ArrayList<Autor> autores = autorDAO.getAutores();
+        req.setAttribute("autores", autores);
+        req.getRequestDispatcher("/WEB-INF/autor/listar.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        if (usuario.getTipo_us().equals("USUARIO")) {
+            req.setAttribute("mensagemAcessoNegado", "Você não tem acesso a essa página.");
+            req.getRequestDispatcher("/WEB-INF/acessoNegado.jsp").forward(req, resp);
+            return;
+        }
+
+        Autor autor = new Autor();
+        try {
+            autor.setNome_aut(req.getParameter("nome"));
+            autor.setNacionalidade_aut(req.getParameter("nacionalidade"));
+            autor.setData_nascimento_aut(req.getParameter("data_nascimento"));
+
+            String idParam = req.getParameter("id");
+            String resultado;
+
+            if (idParam != null && !idParam.isEmpty()) {
+                autor.setId_aut(Integer.parseInt(idParam));
+                resultado = autorDAO.alterar(autor);
+            } else {
+                resultado = autorDAO.inserir(autor);
+            }
+
+            req.getSession().setAttribute("mensagem", resultado);
+        } catch (Exception e) {
+            req.getSession().setAttribute("mensagem", "Erro: " + e.getMessage());
+        }
+
+        resp.sendRedirect(req.getContextPath() + "/autores");
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\EmprestimoController.java:
+package br.ufsm.csi.aulaspringmvc.controller;
+
+import br.ufsm.csi.aulaspringmvc.dao.EmprestimoDAO;
+import br.ufsm.csi.aulaspringmvc.dao.LivroDAO;
+import br.ufsm.csi.aulaspringmvc.dao.UsuarioDAO;
+import br.ufsm.csi.aulaspringmvc.model.Emprestimo;
+import br.ufsm.csi.aulaspringmvc.model.Usuario;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+
+@WebServlet("/emprestimos")
+public class EmprestimoController extends HttpServlet {
+    private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+    private final LivroDAO livroDAO = new LivroDAO();
+    private final UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+
+        String acao = req.getParameter("acao");
+        if (acao != null) {
+            if (acao.equals("devolver")) {
+                int id = Integer.parseInt(req.getParameter("id"));
+                String resultado = emprestimoDAO.devolver(id);
+                req.getSession().setAttribute("mensagem", resultado);
+            } else if (acao.equals("novo")) {
+                req.setAttribute("livros", livroDAO.getLivrosDisponiveis());
+                req.setAttribute("usuarios", usuarioDAO.getUsuariosAtivos());
+                req.getRequestDispatcher("/WEB-INF/emprestimo/editar.jsp").forward(req, resp);
+                return;
+            }
+        }
+        ArrayList<Emprestimo> emprestimos = emprestimoDAO.getEmprestimos();
+        req.setAttribute("emprestimos", emprestimos);
+        req.getRequestDispatcher("/WEB-INF/emprestimo/listar.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+
+        String livroParam = req.getParameter("livro");
+        String usuarioParam = req.getParameter("usuario");
+
+        if (livroParam == null || usuarioParam == null || livroParam.isEmpty() || usuarioParam.isEmpty()) {
+            req.getSession().setAttribute("mensagem", "Erro: Todos os campos são obrigatórios.");
+            resp.sendRedirect(req.getContextPath() + "/emprestimos");
+            return;
+        }
+
+        Emprestimo emprestimo = new Emprestimo();
+        emprestimo.setId_livro_emp(Integer.parseInt(livroParam));
+        emprestimo.setId_usuario_emp(Integer.parseInt(usuarioParam));
+        emprestimo.setData_emprestimo_emp(new Date(System.currentTimeMillis()));
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, 14);
+        emprestimo.setData_devolucao_prevista_emp(new Date(cal.getTimeInMillis()));
+        emprestimo.setStatus_emp("ATIVO");
+
+        String resultado = emprestimoDAO.inserir(emprestimo);
+        req.getSession().setAttribute("mensagem", resultado);
+        resp.sendRedirect(req.getContextPath() + "/emprestimos");
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\HomeController.java:
+//package br.ufsm.csi.aulaspringmvc.controller;
+//
+//import br.ufsm.csi.aulaspringmvc.model.Usuario;
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.annotation.WebServlet;
+//import jakarta.servlet.http.HttpServlet;
+//import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletResponse;
+//import jakarta.servlet.http.HttpSession;
+//
+//import java.io.IOException;
+//
+//
+////@WebServlet("/home")
+//@WebServlet("")
+//public class HomeController extends HttpServlet {
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        HttpSession session = req.getSession(false);
+//        if (session == null || session.getAttribute("usuarioLogado") == null) {
+//            resp.sendRedirect(req.getContextPath() + "/login");
+//            return;
+//        }
+//        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+//        if (!usuario.getTipo_us().equals("ADMIN")) { // Only ADMIN can access home
+//            resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
+//            return;
+//        }
+//        req.getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+//    }
+//}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\LivroController.java:
+package br.ufsm.csi.aulaspringmvc.controller;
+
+import br.ufsm.csi.aulaspringmvc.dao.AutorDAO;
+import br.ufsm.csi.aulaspringmvc.dao.LivroDAO;
+import br.ufsm.csi.aulaspringmvc.model.Livro;
+import br.ufsm.csi.aulaspringmvc.model.Usuario;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+@WebServlet("/livros")
+public class LivroController extends HttpServlet {
+    private final LivroDAO livroDAO = new LivroDAO();
+    private final AutorDAO autorDAO = new AutorDAO();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        if (usuario.getTipo_us().equals("USUARIO")) {
+            req.setAttribute("mensagemAcessoNegado", "Você não tem acesso a essa página.");
+            req.getRequestDispatcher("/WEB-INF/acessoNegado.jsp").forward(req, resp);
+            return;
+        }
+
+        String acao = req.getParameter("acao");
+        if (acao != null) {
+            if (acao.equals("excluir")) {
+                int id = Integer.parseInt(req.getParameter("id"));
+                String resultado = livroDAO.excluir(id);
+                req.getSession().setAttribute("mensagem", resultado);
+            } else if (acao.equals("editar")) {
+                int id = Integer.parseInt(req.getParameter("id"));
+                Livro livro = livroDAO.getLivroById(id);
+                req.setAttribute("livro", livro);
+                req.setAttribute("autores", autorDAO.getAutores());
+                req.getRequestDispatcher("/WEB-INF/livro/editar.jsp").forward(req, resp);
+                return;
+            } else if (acao.equals("novo")) {
+                req.setAttribute("autores", autorDAO.getAutores());
+                req.getRequestDispatcher("/WEB-INF/livro/editar.jsp").forward(req, resp);
+                return;
+            }
+        }
+        ArrayList<Livro> livros = livroDAO.getLivros();
+        req.setAttribute("livros", livros);
+        req.getRequestDispatcher("/WEB-INF/livro/listar.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        if (usuario.getTipo_us().equals("USUARIO")) {
+            req.setAttribute("mensagemAcessoNegado", "Você não tem acesso a essa página.");
+            req.getRequestDispatcher("/WEB-INF/acessoNegado.jsp").forward(req, resp);
+            return;
+        }
+
+        String titulo = req.getParameter("titulo");
+        String isbn = req.getParameter("isbn");
+        String anoParam = req.getParameter("ano");
+        String autorParam = req.getParameter("autor");
+        if (titulo == null || isbn == null || anoParam == null || autorParam == null ||
+                titulo.isEmpty() || isbn.isEmpty() || anoParam.isEmpty() || autorParam.isEmpty()) {
+            req.getSession().setAttribute("mensagem", "Erro: Todos os campos são obrigatórios.");
+            resp.sendRedirect(req.getContextPath() + "/livros");
+            return;
+        }
+
+        Livro livro = new Livro();
+        String idParam = req.getParameter("id");
+        if (idParam != null && !idParam.isEmpty()) {
+            livro.setId_liv(Integer.parseInt(idParam));
+        }
+        livro.setTitulo_liv(titulo);
+        livro.setIsbn_liv(isbn);
+        livro.setAno_publicacao_liv(Integer.parseInt(anoParam));
+        livro.setId_autor_liv(Integer.parseInt(autorParam));
+        livro.setDisponivel_liv(true);
+
+        String resultado;
+        if (idParam != null && !idParam.isEmpty()) {
+            resultado = livroDAO.alterar(livro);
+        } else {
+            resultado = livroDAO.inserir(livro);
+        }
+        req.getSession().setAttribute("mensagem", resultado);
+        resp.sendRedirect(req.getContextPath() + "/livros");
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\LoginController.java:
+package br.ufsm.csi.aulaspringmvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class LoginController {
+
+    @GetMapping("/")
+    public String index() {
+        // Retorna o nome da view "login".
+        // O Spring vai procurar por um arquivo chamado "login.jsp".
+        return "login";
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\LoginController2.java:
+//package br.ufsm.csi.aulaspringmvc.controller;
+//
+//import br.ufsm.csi.aulaspringmvc.model.Usuario;
+//import br.ufsm.csi.aulaspringmvc.service.LoginService;
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.annotation.WebServlet;
+//import jakarta.servlet.http.HttpServlet;
+//import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletResponse;
+//import jakarta.servlet.http.HttpSession;
+//
+//import java.io.IOException;
+//
+//@WebServlet("/login")
+//public class LoginController2 extends HttpServlet {
+//
+//    private static LoginService service = new LoginService();
+//
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+//    }
+//
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String email = req.getParameter("email");
+//        String senha = req.getParameter("senha");
+//
+//        Usuario usuario =  service.autenticar(email, senha);
+//        if ( usuario != null) {
+//            HttpSession session = req.getSession();
+//            session.setAttribute("usuarioLogado", usuario);
+//            // Increase session timeout to 60 minutes (3600 seconds)
+//            session.setMaxInactiveInterval(3600); // 60 minutes
+//
+//            resp.sendRedirect(req.getContextPath() + "/home");
+//
+//        } else {
+//            req.setAttribute("erro", "Email ou senha incorretos");
+//            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+//        }
+//    }
+//}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\LogoutController.java:
+//package br.ufsm.csi.aulaspringmvc.controller;
+//
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.annotation.WebServlet;
+//import jakarta.servlet.http.HttpServlet;
+//import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletResponse;
+//import jakarta.servlet.http.HttpSession;
+//
+//import java.io.IOException;
+//
+//@WebServlet("/logout")
+//public class LogoutController extends HttpServlet {
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        HttpSession session = req.getSession(false);
+//        if (session != null) {
+//            session.invalidate();
+//        }
+//        resp.sendRedirect(req.getContextPath() + "/login");
+//    }
+//}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\controller\MeusEmprestimosController.java:
+package br.ufsm.csi.aulaspringmvc.controller;
+
+import br.ufsm.csi.aulaspringmvc.dao.EmprestimoDAO;
+import br.ufsm.csi.aulaspringmvc.dao.LivroDAO;
+import br.ufsm.csi.aulaspringmvc.dao.UsuarioDAO;
+import br.ufsm.csi.aulaspringmvc.model.Emprestimo;
+import br.ufsm.csi.aulaspringmvc.model.Usuario;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+@WebServlet("/meus-emprestimos")
+public class MeusEmprestimosController extends HttpServlet {
+    private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+    private final LivroDAO livroDAO = new LivroDAO(); // Instanciar LivroDAO
+    private final UsuarioDAO usuarioDAO = new UsuarioDAO(); // Instanciar UsuarioDAO
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+        ArrayList<Emprestimo> emprestimos = emprestimoDAO.getEmprestimosPorUsuario(usuario.getId_us());
+
+        req.setAttribute("emprestimos", emprestimos);
+        req.getRequestDispatcher("/WEB-INF/emprestimo/meus-emprestimos.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("usuarioLogado") == null) {
+            resp.sendRedirect(req.getContextPath() + "/login");
+            return;
+        }
+
+        Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+
+        String acao = req.getParameter("acao");
+        if ("novo".equals(acao)) {
+            // Logic to create a new loan (similar to EmprestimoController's doPost for new loan)
+            String livroParam = req.getParameter("livro");
+            // The user making the request is the current logged in user
+            String usuarioParam = String.valueOf(usuarioLogado.getId_us());
+
+            if (livroParam == null || livroParam.isEmpty()) {
+                req.getSession().setAttribute("mensagem", "Erro: Selecione um livro para empréstimo.");
+                resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
+                return;
+            }
+
+            Emprestimo emprestimo = new Emprestimo();
+            emprestimo.setId_livro_emp(Integer.parseInt(livroParam));
+            emprestimo.setId_usuario_emp(Integer.parseInt(usuarioParam));
+            emprestimo.setData_emprestimo_emp(new Date(System.currentTimeMillis()));
+
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DATE, 14);
+            emprestimo.setData_devolucao_prevista_emp(new Date(cal.getTimeInMillis()));
+            emprestimo.setStatus_emp("ATIVO");
+
+            String resultado = emprestimoDAO.inserir(emprestimo);
+            req.getSession().setAttribute("mensagem", resultado);
+            resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
+            return;
+        } else if ("devolver".equals(acao)) {
+            int id = Integer.parseInt(req.getParameter("id"));
+            String resultado = emprestimoDAO.devolver(id);
+            req.getSession().setAttribute("mensagem", resultado);
+            resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
+            return;
+        }
+
+        // If no specific action, just redirect to list
+        resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\dao\AutorDAO.java:
+package br.ufsm.csi.aulaspringmvc.dao;
+
+
+import br.ufsm.csi.aulaspringmvc.model.Autor;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class AutorDAO {
+
+    public String inserir(Autor autor) {
+        String sql = "INSERT INTO autor (nome_aut, nacionalidade_aut, data_nascimento_aut) VALUES (?, ?, ?)";
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres();
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            stmt.setString(1, autor.getNome_aut());
+            stmt.setString(2, autor.getNacionalidade_aut());
+            stmt.setDate(3, Date.valueOf(autor.getData_nascimento_aut()));
+
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows == 0) {
+                return "Falha ao criar autor. Nenhuma linha afetada.";
+            }
+
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    autor.setId_aut(generatedKeys.getInt(1));
+                }
+            }
+
+            return "Autor criado com sucesso!";
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao criar autor: " + e.getMessage();
+        }
+    }
+
+    public String alterar(Autor autor) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            conn.setAutoCommit(false);
+            PreparedStatement stmt = conn.prepareStatement(
+                    "UPDATE autor SET nome_aut = ?, nacionalidade_aut = ?, data_nascimento_aut = ? WHERE id_aut = ?"
+            );
+            stmt.setString(1, autor.getNome_aut());
+            stmt.setString(2, autor.getNacionalidade_aut());
+            stmt.setDate(3, Date.valueOf(autor.getData_nascimento_aut()));
+            stmt.setInt(4, autor.getId_aut());
+            int updateCount = stmt.executeUpdate();
+            conn.commit();
+            if (updateCount <= 0) {
+                return "Nenhum autor alterado";
+            }
+            return "Autor alterado com sucesso";
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao alterar autor: " + e.getMessage();
+        }
+    }
+
+    public static String excluir(int id) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            PreparedStatement stmt = conn.prepareStatement("DELETE FROM autor WHERE id_aut = ?");
+            stmt.setInt(1, id);
+            int updateCount = stmt.executeUpdate();
+            if (updateCount <= 0) {
+                return "Nenhum autor excluído";
+            }
+            return "Autor excluído com sucesso";
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao excluir autor: " + e.getMessage();
+        }
+    }
+
+    public static Autor getAutorById(int id) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM autor WHERE id_aut = ?");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Autor a = new Autor();
+                a.setId_aut(rs.getInt("id_aut"));
+                a.setNome_aut(rs.getString("nome_aut"));
+                a.setNacionalidade_aut(rs.getString("nacionalidade_aut"));
+                a.setData_nascimento_aut(rs.getDate("data_nascimento_aut").toString());
+                return a;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Autor> getAutores() {
+        ArrayList<Autor> autores = new ArrayList<>();
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM autor")) {
+            while (rs.next()) {
+                Autor a = new Autor();
+                a.setId_aut(rs.getInt("id_aut"));
+                a.setNome_aut(rs.getString("nome_aut"));
+                a.setNacionalidade_aut(rs.getString("nacionalidade_aut"));
+                a.setData_nascimento_aut(rs.getDate("data_nascimento_aut").toString());
+                autores.add(a);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return autores;
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\dao\ConectarBancoDados.java:
+package br.ufsm.csi.aulaspringmvc.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConectarBancoDados {
+    public static Connection conectarBancoPostgres() throws ClassNotFoundException, SQLException {
+        Class.forName("org.postgresql.Driver");
+        String url = "jdbc:postgresql://localhost:5432/poow_trabalho";
+        String user = "postgres";
+        String senha = "1234";
+        return DriverManager.getConnection(url, user, senha);
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\dao\EmprestimoDAO.java:
+package br.ufsm.csi.aulaspringmvc.dao;
+
+
+import br.ufsm.csi.aulaspringmvc.model.Emprestimo;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class EmprestimoDAO {
+    public String inserir(Emprestimo emprestimo) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            conn.setAutoCommit(false);
+            PreparedStatement stmtEmp = conn.prepareStatement(
+                    "INSERT INTO emprestimo (id_livro_emp, id_usuario_emp, data_emprestimo_emp, data_devolucao_prevista_emp, status_emp) VALUES (?, ?, ?, ?, ?)"
+            );
+            stmtEmp.setInt(1, emprestimo.getId_livro_emp());
+            stmtEmp.setInt(2, emprestimo.getId_usuario_emp());
+            stmtEmp.setDate(3, emprestimo.getData_emprestimo_emp());
+            stmtEmp.setDate(4, emprestimo.getData_devolucao_prevista_emp());
+            stmtEmp.setString(5, emprestimo.getStatus_emp());
+            stmtEmp.executeUpdate();
+            PreparedStatement stmtLivro = conn.prepareStatement("UPDATE livro SET disponivel_liv = false WHERE id_liv = ?");
+            stmtLivro.setInt(1, emprestimo.getId_livro_emp());
+            stmtLivro.executeUpdate();
+
+            conn.commit();
+            return "Empréstimo registrado com sucesso";
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao registrar empréstimo";
+        }
+    }
+
+    public ArrayList<Emprestimo> getEmprestimos() {
+        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            String sql = "SELECT e.*, l.titulo_liv as titulo_livro, u.nome_us as nome_usuario " +
+                    "FROM emprestimo e " +
+                    "JOIN livro l ON e.id_livro_emp = l.id_liv " +
+                    "JOIN usuario u ON e.id_usuario_emp = u.id_us";
+
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Emprestimo e = new Emprestimo();
+                e.setId_emp(rs.getInt("id_emp"));
+                e.setId_livro_emp(rs.getInt("id_livro_emp"));
+                e.setId_usuario_emp(rs.getInt("id_usuario_emp"));
+                e.setData_emprestimo_emp(rs.getDate("data_emprestimo_emp"));
+                e.setData_devolucao_prevista_emp(rs.getDate("data_devolucao_prevista_emp"));
+                e.setData_devolucao_efetiva_emp(rs.getDate("data_devolucao_efetiva_emp"));
+                e.setStatus_emp(rs.getString("status_emp"));
+
+                // Adiciona os dados relacionados
+                e.setTitulo_livro(rs.getString("titulo_livro"));
+                e.setNome_usuario(rs.getString("nome_usuario"));
+
+                emprestimos.add(e);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return emprestimos;
+    }
+
+    public ArrayList<Emprestimo> getEmprestimosPorUsuario(int idUsuario) {
+        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            String sql = "SELECT e.*, l.titulo_liv as titulo_livro, u.nome_us as nome_usuario " +
+                    "FROM emprestimo e " +
+                    "JOIN livro l ON e.id_livro_emp = l.id_liv " +
+                    "JOIN usuario u ON e.id_usuario_emp = u.id_us " +
+                    "WHERE e.id_usuario_emp = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Emprestimo e = new Emprestimo();
+                e.setId_emp(rs.getInt("id_emp"));
+                e.setId_livro_emp(rs.getInt("id_livro_emp"));
+                e.setId_usuario_emp(rs.getInt("id_usuario_emp"));
+                e.setData_emprestimo_emp(rs.getDate("data_emprestimo_emp"));
+                e.setData_devolucao_prevista_emp(rs.getDate("data_devolucao_prevista_emp"));
+                e.setData_devolucao_efetiva_emp(rs.getDate("data_devolucao_efetiva_emp"));
+                e.setStatus_emp(rs.getString("status_emp"));
+                e.setTitulo_livro(rs.getString("titulo_livro"));
+                e.setNome_usuario(rs.getString("nome_usuario"));
+                emprestimos.add(e);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return emprestimos;
+    }
+
+    public String devolver(int idEmprestimo) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            conn.setAutoCommit(false);
+            PreparedStatement stmtEmp = conn.prepareStatement(
+                    "UPDATE emprestimo SET status_emp = 'CONCLUIDO', data_devolucao_efetiva_emp = CURRENT_DATE WHERE id_emp = ?"
+            );
+            stmtEmp.setInt(1, idEmprestimo);
+            stmtEmp.executeUpdate();
+
+            PreparedStatement stmtGetLivro = conn.prepareStatement("SELECT id_livro_emp FROM emprestimo WHERE id_emp = ?");
+            stmtGetLivro.setInt(1, idEmprestimo);
+            ResultSet rs = stmtGetLivro.executeQuery();
+            if (rs.next()) {
+                int idLivro = rs.getInt("id_livro_emp");
+                PreparedStatement stmtLivro = conn.prepareStatement("UPDATE livro SET disponivel_liv = true WHERE id_liv = ?");
+                stmtLivro.setInt(1, idLivro);
+                stmtLivro.executeUpdate();
+            }
+            conn.commit();
+            return "Devolução registrada com sucesso";
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao registrar devolução";
+        }
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\dao\LivroDAO.java:
+package br.ufsm.csi.aulaspringmvc.dao;
+
+
+import br.ufsm.csi.aulaspringmvc.model.Livro;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class LivroDAO {
+    public String inserir(Livro livro) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            conn.setAutoCommit(false);
+            PreparedStatement stmt = conn.prepareStatement(
+                    "INSERT INTO livro (titulo_liv, isbn_liv, ano_publicacao_liv, id_autor_liv, disponivel_liv) VALUES (?, ?, ?, ?, ?)"
+            );
+            stmt.setString(1, livro.getTitulo_liv());
+            stmt.setString(2, livro.getIsbn_liv());
+            stmt.setInt(3, livro.getAno_publicacao_liv());
+            stmt.setInt(4, livro.getId_autor_liv());
+            stmt.setBoolean(5, livro.isDisponivel_liv());
+            stmt.executeUpdate();
+            conn.commit();
+            return "Livro inserido com sucesso";
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao inserir livro";
+        }
+    }
+
+    public ArrayList<Livro> getLivros() {
+        ArrayList<Livro> livros = new ArrayList<>();
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            String sql = "SELECT l.*, a.nome_aut as nome_autor " +
+                    "FROM livro l JOIN autor a ON l.id_autor_liv = a.id_aut";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Livro l = new Livro();
+                l.setId_liv(rs.getInt("id_liv"));
+                l.setTitulo_liv(rs.getString("titulo_liv"));
+                l.setIsbn_liv(rs.getString("isbn_liv"));
+                l.setAno_publicacao_liv(rs.getInt("ano_publicacao_liv"));
+                l.setId_autor_liv(rs.getInt("id_autor_liv"));
+                l.setDisponivel_liv(rs.getBoolean("disponivel_liv"));
+
+                // Adiciona o nome do autor
+                l.setNome_autor(rs.getString("nome_autor"));
+                livros.add(l);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return livros;
+    }
+
+    public ArrayList<Livro> getLivrosDisponiveis() {
+        ArrayList<Livro> livros = new ArrayList<>();
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(
+                     "SELECT l.*, a.nome_aut FROM livro l JOIN autor a ON l.id_autor_liv = a.id_aut WHERE l.disponivel_liv = true"
+             )) {
+            while (rs.next()) {
+                Livro l = new Livro();
+                l.setId_liv(rs.getInt("id_liv"));
+                l.setTitulo_liv(rs.getString("titulo_liv"));
+                l.setIsbn_liv(rs.getString("isbn_liv"));
+                l.setAno_publicacao_liv(rs.getInt("ano_publicacao_liv"));
+                l.setId_autor_liv(rs.getInt("id_autor_liv"));
+                l.setDisponivel_liv(rs.getBoolean("disponivel_liv"));
+                l.setNome_autor(rs.getString("nome_aut")); // Ensure author name is also set for available books
+                livros.add(l);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return livros;
+    }
+
+    public Livro getLivroById(int id) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            PreparedStatement stmt = conn.prepareStatement(
+                    "SELECT l.*, a.nome_aut FROM livro l JOIN autor a ON l.id_autor_liv = a.id_aut WHERE l.id_liv = ?"
+            );
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Livro l = new Livro();
+                l.setId_liv(rs.getInt("id_liv"));
+                l.setTitulo_liv(rs.getString("titulo_liv"));
+                l.setIsbn_liv(rs.getString("isbn_liv"));
+                l.setAno_publicacao_liv(rs.getInt("ano_publicacao_liv"));
+                l.setId_autor_liv(rs.getInt("id_autor_liv"));
+                l.setDisponivel_liv(rs.getBoolean("disponivel_liv"));
+                l.setNome_autor(rs.getString("nome_aut")); // Ensure author name is also set
+                return l;
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public String alterar(Livro livro) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            PreparedStatement stmt = conn.prepareStatement(
+                    "UPDATE livro SET titulo_liv = ?, isbn_liv = ?, ano_publicacao_liv = ?, id_autor_liv = ?, disponivel_liv = ? WHERE id_liv = ?"
+            );
+            stmt.setString(1, livro.getTitulo_liv());
+            stmt.setString(2, livro.getIsbn_liv());
+            stmt.setInt(3, livro.getAno_publicacao_liv());
+            stmt.setInt(4, livro.getId_autor_liv());
+            stmt.setBoolean(5, livro.isDisponivel_liv());
+            stmt.setInt(6, livro.getId_liv());
+            int updateCount = stmt.executeUpdate();
+            if (updateCount <= 0) {
+                return "Nenhum livro atualizado";
+            }
+            return "Livro atualizado com sucesso";
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+            return "Erro ao atualizar livro";
+        }
+    }
+
+    public String excluir(int id) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            PreparedStatement stmt = conn.prepareStatement("DELETE FROM livro WHERE id_liv = ?");
+            stmt.setInt(1, id);
+            int updateCount = stmt.executeUpdate();
+            if (updateCount <= 0) {
+                return "Nenhum livro excluído";
+            }
+            return "Livro excluído com sucesso";
+        } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+            return "Erro ao excluir livro";
+        }
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\dao\UsuarioDAO.java:
+package br.ufsm.csi.aulaspringmvc.dao;
+
+import br.ufsm.csi.aulaspringmvc.model.Usuario;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class UsuarioDAO {
+    public Usuario autenticar(String email, String senha) {
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
+            PreparedStatement stmt = conn.prepareStatement(
+                    "SELECT * FROM usuario WHERE email_us = ? AND senha_us = ? AND ativo_us = true"
+            );
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId_us(rs.getInt("id_us"));
+                u.setEmail_us(rs.getString("email_us"));
+                u.setSenha_us(rs.getString("senha_us"));
+                u.setNome_us(rs.getString("nome_us"));
+                u.setTipo_us(rs.getString("tipo_us"));
+                return u;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Usuario> getUsuariosAtivos() {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        try (Connection conn = ConectarBancoDados.conectarBancoPostgres();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(
+                     "SELECT * FROM usuario WHERE ativo_us = true AND tipo_us = 'USUARIO'"
+             )) {
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId_us(rs.getInt("id_us"));
+                u.setEmail_us(rs.getString("email_us"));
+                u.setNome_us(rs.getString("nome_us"));
+                usuarios.add(u);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return usuarios;
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\model\Autor.java:
+package br.ufsm.csi.aulaspringmvc.model;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class Autor {
+    private int id_aut;
+    private String nome_aut;
+    private String nacionalidade_aut;
+    private String data_nascimento_aut;
+
+    // Getters e Setters
+    public int getId_aut() { return id_aut; }
+    public void setId_aut(int id_aut) { this.id_aut = id_aut; }
+
+    public String getNome_aut() { return nome_aut; }
+    public void setNome_aut(String nome_aut) {
+        if (nome_aut == null || nome_aut.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome do autor é obrigatório");
+        }
+        this.nome_aut = nome_aut;
+    }
+
+    public String getNacionalidade_aut() { return nacionalidade_aut; }
+    public void setNacionalidade_aut(String nacionalidade_aut) {
+        this.nacionalidade_aut = nacionalidade_aut;
+    }
+
+    public String getData_nascimento_aut() { return data_nascimento_aut; }
+    public void setData_nascimento_aut(String data_nascimento_aut) {
+        if (data_nascimento_aut == null || data_nascimento_aut.trim().isEmpty()) {
+            throw new IllegalArgumentException("Data de nascimento é obrigatória");
+        }
+
+        // Converte para o formato AAAA-MM-dd para o input type="date"
+        try {
+            LocalDate date = LocalDate.parse(data_nascimento_aut);
+            this.data_nascimento_aut = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Formato de data inválido. Use o formato AAAA-MM-DD");
+        }
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\model\Emprestimo.java:
+package br.ufsm.csi.aulaspringmvc.model;
+import java.sql.Date;
+public class Emprestimo {
+    private int id_emp;
+    private int id_livro_emp;
+    private int id_usuario_emp;
+    private Date data_emprestimo_emp;
+    private Date data_devolucao_prevista_emp;
+    private Date data_devolucao_efetiva_emp;
+    private String status_emp;
+    //extras - para exibir
+    private String titulo_livro;
+    private String nome_usuario;
+
+    // Getters e Setters
+    public int getId_emp() { return id_emp; }
+    public void setId_emp(int id_emp) { this.id_emp = id_emp; }
+    public int getId_livro_emp() { return id_livro_emp; }
+    public void setId_livro_emp(int id_livro_emp) { this.id_livro_emp = id_livro_emp; }
+    public int getId_usuario_emp() { return id_usuario_emp; }
+    public void setId_usuario_emp(int id_usuario_emp) { this.id_usuario_emp = id_usuario_emp; }
+    public Date getData_emprestimo_emp() { return data_emprestimo_emp; }
+    public void setData_emprestimo_emp(Date data_emprestimo_emp) { this.data_emprestimo_emp = data_emprestimo_emp; }
+    public Date getData_devolucao_prevista_emp() { return data_devolucao_prevista_emp; }
+    public void setData_devolucao_prevista_emp(Date data_devolucao_prevista_emp) { this.data_devolucao_prevista_emp = data_devolucao_prevista_emp; }
+    public Date getData_devolucao_efetiva_emp() { return data_devolucao_efetiva_emp; }
+    public void setData_devolucao_efetiva_emp(Date data_devolucao_efetiva_emp) { this.data_devolucao_efetiva_emp = data_devolucao_efetiva_emp; }
+    public String getStatus_emp() { return status_emp; }
+    public void setStatus_emp(String status_emp) { this.status_emp = status_emp; }
+
+    public String getTitulo_livro() { return titulo_livro; }
+    public void setTitulo_livro(String titulo_livro) { this.titulo_livro = titulo_livro; }
+
+    public String getNome_usuario() { return nome_usuario; }
+    public void setNome_usuario(String nome_usuario) { this.nome_usuario = nome_usuario; }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\model\Livro.java:
+package br.ufsm.csi.aulaspringmvc.model;
+
+public class Livro {
+    private int id_liv;
+    private String titulo_liv;
+    private String isbn_liv;
+    private int ano_publicacao_liv;
+    private int id_autor_liv;
+    private boolean disponivel_liv;
+    //extras - para exibir
+    private String nome_autor;
+    // Getters e Setters
+    public int getId_liv() { return id_liv; }
+    public void setId_liv(int id_liv) { this.id_liv = id_liv; }
+    public String getTitulo_liv() { return titulo_liv; }
+    public void setTitulo_liv(String titulo_liv) { this.titulo_liv = titulo_liv; }
+    public String getIsbn_liv() { return isbn_liv; }
+    public void setIsbn_liv(String isbn_liv) { this.isbn_liv = isbn_liv; }
+    public int getAno_publicacao_liv() { return ano_publicacao_liv; }
+    public void setAno_publicacao_liv(int ano_publicacao_liv) { this.ano_publicacao_liv = ano_publicacao_liv; }
+    public int getId_autor_liv() { return id_autor_liv; }
+    public void setId_autor_liv(int id_autor_liv) { this.id_autor_liv = id_autor_liv; }
+    public boolean isDisponivel_liv() { return disponivel_liv; }
+    public void setDisponivel_liv(boolean disponivel_liv) { this.disponivel_liv = disponivel_liv; }
+
+    public String getNome_autor() { return nome_autor; }
+    public void setNome_autor(String nome_autor) { this.nome_autor = nome_autor; }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\model\Usuario.java:
+package br.ufsm.csi.aulaspringmvc.model;
+
+public class Usuario {
+    private int id_us;
+    private String email_us;
+    private String senha_us;
+    private String nome_us;
+    private boolean ativo_us;
+    private String tipo_us;
+    // Getters e Setters
+    public int getId_us() { return id_us; }
+    public void setId_us(int id_us) { this.id_us = id_us; }
+    public String getEmail_us() { return email_us; }
+    public void setEmail_us(String email_us) { this.email_us = email_us; }
+    public String getSenha_us() { return senha_us; }
+    public void setSenha_us(String senha_us) { this.senha_us = senha_us; }
+    public String getNome_us() { return nome_us; }
+    public void setNome_us(String nome_us) { this.nome_us = nome_us; }
+    public boolean isAtivo_us() { return ativo_us; }
+    public void setAtivo_us(boolean ativo_us) { this.ativo_us = ativo_us; }
+    public String getTipo_us() { return tipo_us; }
+    public void setTipo_us(String tipo_us) { this.tipo_us = tipo_us; }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\java\br\ufsm\csi\aulaspringmvc\service\LoginService.java:
+package br.ufsm.csi.aulaspringmvc.service;
+
+import br.ufsm.csi.aulaspringmvc.dao.UsuarioDAO;
+import br.ufsm.csi.aulaspringmvc.model.Usuario;
+
+public class LoginService {
+
+    private static UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+    public Usuario autenticar(String email, String senha) {
+
+        Usuario usuario = usuarioDAO.autenticar(email, senha);
+        if (usuario == null) {
+            return null;
+        } else {
+            return usuario;
+        }
+
+    }
+}
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\index.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<h2>Sistema de Gerenciamento</h2>
+<ul>
+    <c:if test="${sessionScope.usuarioLogado.tipo_us eq 'ADMIN'}">
+        <li><a href="${pageContext.request.contextPath}/autores">Autores</a></li>
+        <li><a href="${pageContext.request.contextPath}/livros">Livros</a></li>
+        <li><a href="${pageContext.request.contextPath}/emprestimos">Emprestimos</a></li>
+    </c:if>
+    <li><a href="${pageContext.request.contextPath}/meus-emprestimos">Meus Empréstimos</a></li>
+    <li><a href="${pageContext.request.contextPath}/logout">Sair</a></li>
+</ul>
+
+</body>
+</html>
+<html>
+<head>
+    <title>Login - Sistema Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Login</h2>
+    <c:if test="${not empty erro}">
+        <p class="error">${erro}</p>
+    </c:if>
+    <form action="${pageContext.request.contextPath}/login" method="post">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\login.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Login - Sistema Biblioteca</title>
+    <style>
+        .login-container { width: 300px; margin: 100px auto; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Login</h2>
+    <c:if test="${not empty erro}">
+        <p class="error">${erro}</p>
+    </c:if>
+    <form action="${pageContext.request.contextPath}/login" method="post">
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <div>
+            <label>Senha:</label>
+            <input type="password" name="senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+</body>
+</html>
+
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\acessoNegado.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Acesso Negado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container {
+            background-color: #fff;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        h1 {
+            color: #dc3545; /* Bootstrap danger red */
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Acesso Negado!</h1>
+    <p>${mensagemAcessoNegado}</p>
+    <p>Você não tem permissão para acessar esta página.</p>
+    <p><a href="${pageContext.request.contextPath}/home">Voltar para Home</a></p>
+</div>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\home.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Home - Sistema Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<h1>Bem-vindo, ${usuarioLogado.nome_us}!</h1>
+<p>Você está logado como: ${usuarioLogado.tipo_us}</p>
+
+<nav>
+    <ul>
+        <c:if test="${usuarioLogado.tipo_us eq 'ADMIN'}">
+            <li><a href="${pageContext.request.contextPath}/autores">Gerenciar Autores</a></li>
+            <li><a href="${pageContext.request.contextPath}/livros">Gerenciar Livros</a></li>
+            <li><a href="${pageContext.request.contextPath}/emprestimos">Gerenciar Empréstimos</a></li>
+        </c:if>
+        <c:if test="${usuarioLogado.tipo_us eq 'USUARIO'}">
+        <li><a href="${pageContext.request.contextPath}/meus-emprestimos">Meus Empréstimos</a></li>
+        </c:if>
+        <li><a href="${pageContext.request.contextPath}/logout">Sair</a></li>
+    </ul>
+</nav>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\web.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+  <display-name>biblioteca</display-name>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+
+  <session-config>
+    <session-timeout>1</session-timeout> <!-- Sessão expira em 1 minuto -->
+  </session-config>
+
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <el-ignored>false</el-ignored>
+    </jsp-property-group>
+  </jsp-config>
+</web-app>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\autor\editar.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html>
+<head>
+    <title>${empty autorEdicao ? 'Novo Autor' : 'Editar Autor'}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        input[type="text"],
+        input[type="date"] {
+            width: calc(100% - 160px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+        button[type="submit"] {
+            background-color: #28a745; /* Green for Save */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        a {
+            text-decoration: none;
+            color: #dc3545; /* Red for Cancel */
+            padding: 10px 15px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+        p[style="color: red;"] {
+            background-color: #ffe0e0;
+            border: 1px solid #ffb3b3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>${empty autorEdicao ? 'Novo Autor' : 'Editar Autor'}</h1>
+
+<c:if test="${not empty mensagem}">
+    <p style="color: red;">${mensagem}</p>
+</c:if>
+
+<form action="${pageContext.request.contextPath}/autores" method="post">
+    <c:if test="${not empty autorEdicao}">
+        <input type="hidden" name="id" value="${autorEdicao.id_aut}">
+    </c:if>
+
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="${autorEdicao.nome_aut}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="nacionalidade">Nacionalidade:</label>
+        <input type="text" id="nacionalidade" name="nacionalidade" value="${autorEdicao.nacionalidade_aut}">
+    </div>
+
+    <div class="form-group">
+        <label for="data_nascimento">Data Nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento"
+               value="${autorEdicao.data_nascimento_aut}" required>
+    </div>
+
+    <div class="form-group">
+        <button type="submit">Salvar</button>
+        <a href="${pageContext.request.contextPath}/autores">Cancelar</a>
+    </div>
+</form>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\autor\listar.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Autores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+            color: #555;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e2e6ea;
+        }
+        .actions {
+            white-space: nowrap;
+            width: 150px; /* Adjust as needed */
+        }
+        .actions a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        .actions a:hover {
+            opacity: 0.8;
+        }
+        .actions a:first-child { /* Editar */
+            background-color: #ffc107; /* Yellow */
+            color: #333;
+        }
+        .actions a:last-child { /* Excluir */
+            background-color: #dc3545; /* Red */
+            color: white;
+        }
+        .btn-novo {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .btn-novo:hover {
+            background-color: #0056b3;
+        }
+        p[style="color: green;"] {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        div[style="margin-top: 20px;"] a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        div[style="margin-top: 20px;"] a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Autores</h1>
+
+<c:if test="${not empty mensagem}">
+    <p style="color: green;">${mensagem}</p>
+    <c:remove var="mensagem" scope="session"/>
+</c:if>
+
+<a href="${pageContext.request.contextPath}/autores?acao=novo" class="btn-novo">Novo Autor</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Nacionalidade</th>
+        <th>Ano de Nascimento</th>
+        <th class="actions">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${autores}" var="autor">
+        <tr>
+            <td>${autor.id_aut}</td>
+            <td>${autor.nome_aut}</td>
+            <td>${autor.nacionalidade_aut}</td>
+            <td>${autor.data_nascimento_aut}</td>
+            <td class="actions">
+                <a href="${pageContext.request.contextPath}/autores?acao=editar&id=${autor.id_aut}">Editar</a>
+                <a href="${pageContext.request.contextPath}/autores?acao=excluir&id=${autor.id_aut}"
+                   onclick="return confirm('Tem certeza que deseja excluir este autor?')">Excluir</a>
+            </td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<div style="margin-top: 20px;">
+    <a href="${pageContext.request.contextPath}/home">Voltar para Home</a>
+</div>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\emprestimo\editar.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Novo Empréstimo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin-top: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #28a745; /* Green for Register */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        a {
+            text-decoration: none;
+            color: #dc3545; /* Red for Cancel */
+            padding: 10px 15px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<h1>Novo Empréstimo</h1>
+
+<form action="${pageContext.request.contextPath}/emprestimos" method="post">
+    <div>
+        <label>Livro:</label>
+        <select name="livro" required>
+            <option value="">Selecione um livro</option>
+            <c:forEach items="${livros}" var="livro">
+                <c:if test="${livro.disponivel_liv}">
+                    <option value="${livro.id_liv}">${livro.titulo_liv} (${livro.isbn_liv})</option>
+                </c:if>
+            </c:forEach>
+        </select>
+    </div>
+
+    <div>
+        <label>Usuário:</label>
+        <select name="usuario" required>
+            <option value="">Selecione um usuário</option>
+            <c:forEach items="${usuarios}" var="usuario">
+                <option value="${usuario.id_us}">${usuario.nome_us} (${usuario.email_us})</option>
+            </c:forEach>
+        </select>
+    </div>
+
+    <button type="submit">Registrar Empréstimo</button>
+    <a href="${pageContext.request.contextPath}/emprestimos">Cancelar</a>
+</form>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\emprestimo\listar.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Empréstimos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+            color: #555;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e2e6ea;
+        }
+        .atrasado {
+            color: red;
+            font-weight: bold;
+        }
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .devolver-btn {
+            background-color: #28a745; /* Green for Devolver */
+        }
+        .devolver-btn:hover {
+            background-color: #218838;
+        }
+        p[style="color: green;"] {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<h1>Empréstimos</h1>
+
+<c:if test="${not empty mensagem}">
+    <p style="color: green;">${mensagem}</p>
+    <c:remove var="mensagem" scope="session"/>
+</c:if>
+
+<a href="${pageContext.request.contextPath}/emprestimos?acao=novo">Novo Empréstimo</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Livro</th>
+        <th>Usuário</th>
+        <th>Data Empréstimo</th>
+        <th>Data Devolução Prevista</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    <c:forEach items="${emprestimos}" var="emp">
+        <tr class="${emp.status_emp eq 'ATRASADO' ? 'atrasado' : ''}">
+            <td>${emp.id_emp}</td>
+            <td>${emp.titulo_livro}</td>
+            <td>${emp.nome_usuario}</td>
+            <td>${emp.data_emprestimo_emp}</td>
+            <td>${emp.data_devolucao_prevista_emp}</td>
+            <td>${emp.status_emp}</td>
+            <td>
+                <c:if test="${emp.status_emp eq 'ATIVO'}">
+                    <a href="${pageContext.request.contextPath}/emprestimos?acao=devolver&id=${emp.id_emp}" class="devolver-btn">Devolver</a>
+                </c:if>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
+
+<a href="${pageContext.request.contextPath}/home" class="back-link">Voltar</a>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\emprestimo\meus-emprestimos.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+  <title>Meus Empréstimos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #e9ecef;
+      color: #555;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    tr:hover {
+      background-color: #e2e6ea;
+    }
+    .atrasado {
+      color: red;
+      font-weight: bold;
+    }
+    .action-links a {
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin-right: 5px;
+      display: inline-block;
+    }
+    .action-links a:hover {
+      opacity: 0.8;
+    }
+    .devolver-btn {
+      background-color: #28a745; /* Green */
+      color: white;
+    }
+    .devolver-btn:hover {
+      background-color: #218838;
+    }
+    .new-loan-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .new-loan-btn:hover {
+      background-color: #0056b3;
+    }
+    .logout-link {
+      margin-top: 20px;
+      display: inline-block;
+      color: #dc3545;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border: 1px solid #dc3545;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .logout-link:hover {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+  <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<h1>Meus Empréstimos</h1>
+
+<c:if test="${not empty mensagem}">
+  <p style="color: green;">${mensagem}</p>
+  <c:remove var="mensagem" scope="session"/>
+</c:if>
+
+<%-- Add New Loan button for users --%>
+<a href="${pageContext.request.contextPath}/emprestimos?acao=novo" class="new-loan-btn">Novo Empréstimo</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Livro</th>
+    <th>Data Empréstimo</th>
+    <th>Data Devolução Prevista</th>
+    <th>Status</th>
+    <th>Ações</th>
+  </tr>
+  <c:forEach items="${emprestimos}" var="emp">
+    <tr class="${emp.status_emp eq 'ATRASADO' ? 'atrasado' : ''}">
+      <td>${emp.id_emp}</td>
+      <td>${emp.titulo_livro}</td> <%-- Corrected to use titulo_livro from Emprestimo model --%>
+      <td>${emp.data_emprestimo_emp}</td>
+      <td>${emp.data_devolucao_prevista_emp}</td>
+      <td>${emp.status_emp}</td>
+      <td class="action-links">
+        <c:if test="${emp.status_emp eq 'ATIVO'}">
+          <a href="${pageContext.request.contextPath}/meus-emprestimos?acao=devolver&id=${emp.id_emp}" class="devolver-btn">Devolver</a>
+        </c:if>
+      </td>
+    </tr>
+  </c:forEach>
+</table>
+
+<a href="${pageContext.request.contextPath}/logout" class="logout-link">Sair</a>
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\livro\editar.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>${empty livro ? 'Novo Livro' : 'Editar Livro'}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #dc3545; /* Red for access denied */
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin-top: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #28a745; /* Green for Save */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        a {
+            text-decoration: none;
+            color: #dc3545; /* Red for Cancel */
+            padding: 10px 15px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<c:choose>
+    <c:when test="${usuarioLogado.tipo_us eq 'USUARIO'}">
+        <h3>Você não tem acesso a essa página.</h3>
+    </c:when>
+    <c:otherwise>
+        <h1>${empty livro ? 'Novo Livro' : 'Editar Livro'}</h1>
+
+        <form action="${pageContext.request.contextPath}/livros" method="post">
+            <c:if test="${not empty livro}">
+                <input type="hidden" name="id" value="${livro.id_liv}">
+            </c:if>
+
+            <div>
+                <label>Título:</label>
+                <input type="text" name="titulo" value="${livro.titulo_liv}" required>
+            </div>
+
+            <div>
+                <label>ISBN:</label>
+                <input type="text" name="isbn" value="${livro.isbn_liv}" required>
+            </div>
+
+            <div>
+                <label>Ano Publicação:</label>
+                <input type="number" name="ano" value="${livro.ano_publicacao_liv}" required>
+            </div>
+
+            <div>
+                <label>Autor:</label>
+                <select name="autor" required>
+                    <option value="">Selecione um autor</option>
+                    <c:forEach items="${autores}" var="autor">
+                        <option value="${autor.id_aut}"
+                            ${livro.id_autor_liv eq autor.id_aut ? 'selected' : ''}>
+                                ${autor.nome_aut}
+                        </option>
+                    </c:forEach>
+                </select>
+            </div>
+
+            <button type="submit">Salvar</button>
+            <a href="${pageContext.request.contextPath}/livros">Cancelar</a>
+        </form>
+    </c:otherwise>
+</c:choose>
+
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\main\webapp\WEB-INF\livro\listar.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Livros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #dc3545; /* Red for access denied */
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+            color: #555;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e2e6ea;
+        }
+        .action-links {
+            white-space: nowrap;
+            width: 150px; /* Adjust as needed */
+        }
+        .action-links a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        .action-links a:hover {
+            opacity: 0.8;
+        }
+        .action-links a:first-child { /* Editar */
+            background-color: #ffc107; /* Yellow */
+            color: #333;
+        }
+        .action-links a:last-child { /* Excluir */
+            background-color: #dc3545; /* Red */
+            color: white;
+        }
+        .new-livro-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .new-livro-btn:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<c:choose>
+    <c:when test="${usuarioLogado.tipo_us eq 'USUARIO'}">
+        <h3>Você não tem acesso a essa página.</h3>
+        <p><a href="${pageContext.request.contextPath}/home" class="back-link">Voltar para Home</a></p>
+    </c:when>
+    <c:otherwise>
+        <h1>Livros</h1>
+
+        <a href="${pageContext.request.contextPath}/livros?acao=novo" class="new-livro-btn">Novo Livro</a>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>ISBN</th>
+                <th>Ano Publicação</th>
+                <th>Autor</th>
+                <th>Disponível</th>
+                <th>Ações</th>
+            </tr>
+            <c:forEach items="${livros}" var="livro">
+                <tr>
+                    <td>${livro.id_liv}</td>
+                    <td>${livro.titulo_liv}</td>
+                    <td>${livro.isbn_liv}</td>
+                    <td>${livro.ano_publicacao_liv}</td>
+                    <td>${livro.nome_autor}</td>
+                    <td>${livro.disponivel_liv ? "Sim" : "Não"}</td>
+                    <td class="action-links">
+                        <a href="${pageContext.request.contextPath}/livros?acao=editar&id=${livro.id_liv}">Editar</a>
+                        <a href="${pageContext.request.contextPath}/livros?acao=excluir&id=${livro.id_liv}"
+                           onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <a href="${pageContext.request.contextPath}/home" class="back-link">Voltar</a>
+    </c:otherwise>
+</c:choose>
+
+</body>
+</html>
+..
+- Endereço: C:\Users\Cliente\Desktop\NICOLE\UFSM\spi ufsm\[03] POO WEB I\aula-spring-mvc\src\test\java\br\ufsm\csi\aulaspringmvc\AulaSpringMvcApplicationTests.java:
+package br.ufsm.csi.aulaspringmvc;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AulaSpringMvcApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
+
+..
