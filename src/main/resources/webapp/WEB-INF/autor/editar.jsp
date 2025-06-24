@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
-    <title>${empty autor.id_aut ? 'Novo Autor' : 'Editar Autor'}</title>
+    <title>${empty autorEdicao ? 'Novo Autor' : 'Editar Autor'}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,7 +42,7 @@
             vertical-align: middle;
         }
         button[type="submit"] {
-            background-color: #28a745;
+            background-color: #28a745; /* Green for Save */
             color: white;
             padding: 10px 15px;
             border: none;
@@ -55,7 +56,7 @@
         }
         a {
             text-decoration: none;
-            color: #dc3545;
+            color: #dc3545; /* Red for Cancel */
             padding: 10px 15px;
             border: 1px solid #dc3545;
             border-radius: 4px;
@@ -65,32 +66,41 @@
             background-color: #dc3545;
             color: white;
         }
+        p[style="color: red;"] {
+            background-color: #ffe0e0;
+            border: 1px solid #ffb3b3;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-<h1>${empty autor.id_aut ? 'Novo Autor' : 'Editar Autor'}</h1>
+<h1>${empty autorEdicao ? 'Novo Autor' : 'Editar Autor'}</h1>
 
 <c:if test="${not empty mensagem}">
     <p style="color: red;">${mensagem}</p>
 </c:if>
 
-<form action="${pageContext.request.contextPath}/autores/salvar" method="post">
-    <input type="hidden" name="id_aut" value="${autor.id_aut}">
+<form action="${pageContext.request.contextPath}/autores" method="post">
+    <c:if test="${not empty autorEdicao}">
+        <input type="hidden" name="id" value="${autorEdicao.id_aut}">
+    </c:if>
 
     <div class="form-group">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome_aut" value="${autor.nome_aut}" required>
+        <input type="text" id="nome" name="nome" value="${autorEdicao.nome_aut}" required>
     </div>
 
     <div class="form-group">
         <label for="nacionalidade">Nacionalidade:</label>
-        <input type="text" id="nacionalidade" name="nacionalidade_aut" value="${autor.nacionalidade_aut}">
+        <input type="text" id="nacionalidade" name="nacionalidade" value="${autorEdicao.nacionalidade_aut}">
     </div>
 
     <div class="form-group">
         <label for="data_nascimento">Data Nascimento:</label>
-        <input type="date" id="data_nascimento" name="data_nascimento_aut"
-               value="${autor.data_nascimento_aut}" required>
+        <input type="date" id="data_nascimento" name="data_nascimento"
+               value="${autorEdicao.data_nascimento_aut}" required>
     </div>
 
     <div class="form-group">

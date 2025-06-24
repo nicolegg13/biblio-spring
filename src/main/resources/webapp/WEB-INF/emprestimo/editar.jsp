@@ -38,7 +38,7 @@
             box-sizing: border-box;
         }
         button[type="submit"] {
-            background-color: #28a745;
+            background-color: #28a745; /* Green for Register */
             color: white;
             padding: 10px 15px;
             border: none;
@@ -47,33 +47,47 @@
             font-size: 16px;
             margin-right: 10px;
         }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
         a {
             text-decoration: none;
-            color: #dc3545;
+            color: #dc3545; /* Red for Cancel */
             padding: 10px 15px;
             border: 1px solid #dc3545;
             border-radius: 4px;
             font-size: 16px;
         }
+        a:hover {
+            background-color: #dc3545;
+            color: white;
+        }
     </style>
 </head>
 <body>
+
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
 <h1>Novo Empréstimo</h1>
 
-<form action="${pageContext.request.contextPath}/emprestimos/salvar" method="post">
+<form action="${pageContext.request.contextPath}/emprestimos" method="post">
     <div>
         <label>Livro:</label>
-        <select name="id_livro_emp" required>
+        <select name="livro" required>
             <option value="">Selecione um livro</option>
             <c:forEach items="${livros}" var="livro">
-                <option value="${livro.id_liv}">${livro.titulo_liv} (${livro.isbn_liv})</option>
+                <c:if test="${livro.disponivel_liv}">
+                    <option value="${livro.id_liv}">${livro.titulo_liv} (${livro.isbn_liv})</option>
+                </c:if>
             </c:forEach>
         </select>
     </div>
 
     <div>
         <label>Usuário:</label>
-        <select name="id_usuario_emp" required>
+        <select name="usuario" required>
             <option value="">Selecione um usuário</option>
             <c:forEach items="${usuarios}" var="usuario">
                 <option value="${usuario.id_us}">${usuario.nome_us} (${usuario.email_us})</option>

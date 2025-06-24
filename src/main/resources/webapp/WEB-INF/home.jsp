@@ -13,6 +13,16 @@
         h1 {
             color: #007bff;
         }
+        p {
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 10px;
+        }
         nav a {
             text-decoration: none;
             color: #007bff;
@@ -31,18 +41,22 @@
 </head>
 <body>
 
-<h1>Bem-vindo, ${sessionScope.usuarioLogado.nome_us}!</h1>
-<p>Você está logado como: ${sessionScope.usuarioLogado.tipo_us}</p>
+<c:if test="${empty sessionScope.usuarioLogado}">
+    <script>window.location='${pageContext.request.contextPath}/login';</script>
+</c:if>
+
+<h1>Bem-vindo, ${usuarioLogado.nome_us}!</h1>
+<p>Você está logado como: ${usuarioLogado.tipo_us}</p>
 
 <nav>
     <ul>
-        <c:if test="${sessionScope.usuarioLogado.tipo_us eq 'ADMIN'}">
+        <c:if test="${usuarioLogado.tipo_us eq 'ADMIN'}">
             <li><a href="${pageContext.request.contextPath}/autores">Gerenciar Autores</a></li>
             <li><a href="${pageContext.request.contextPath}/livros">Gerenciar Livros</a></li>
             <li><a href="${pageContext.request.contextPath}/emprestimos">Gerenciar Empréstimos</a></li>
         </c:if>
-        <c:if test="${sessionScope.usuarioLogado.tipo_us eq 'USUARIO'}">
-            <li><a href="${pageContext.request.contextPath}/meus-emprestimos">Meus Empréstimos</a></li>
+        <c:if test="${usuarioLogado.tipo_us eq 'USUARIO'}">
+        <li><a href="${pageContext.request.contextPath}/meus-emprestimos">Meus Empréstimos</a></li>
         </c:if>
         <li><a href="${pageContext.request.contextPath}/logout">Sair</a></li>
     </ul>

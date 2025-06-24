@@ -1,89 +1,36 @@
 package br.ufsm.csi.aulaspringmvc.controller;
 
 import br.ufsm.csi.aulaspringmvc.dao.EmprestimoDAO;
-import br.ufsm.csi.aulaspringmvc.dao.LivroDAO;
-import br.ufsm.csi.aulaspringmvc.dao.UsuarioDAO;
 import br.ufsm.csi.aulaspringmvc.model.Emprestimo;
 import br.ufsm.csi.aulaspringmvc.model.Usuario;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Calendar;
+@Controller
+@RequestMapping("/meus-emprestimos")
+public class MeusEmprestimosController {
 
-@WebServlet("/meus-emprestimos")
-public class MeusEmprestimosController extends HttpServlet {
     private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-    private final LivroDAO livroDAO = new LivroDAO(); // Instanciar LivroDAO
-    private final UsuarioDAO usuarioDAO = new UsuarioDAO(); // Instanciar UsuarioDAO
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        if (session == null || session.getAttribute("usuarioLogado") == null) {
-            resp.sendRedirect(req.getContextPath() + "/login");
-            return;
-        }
-
+    @GetMapping
+    public String getMeusEmprestimos(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-        ArrayList<Emprestimo> emprestimos = emprestimoDAO.getEmprestimosPorUsuario(usuario.getId_us());
-
-        req.setAttribute("emprestimos", emprestimos);
-        req.getRequestDispatcher("/WEB-INF/emprestimo/meus-emprestimos.jsp").forward(req, resp);
+        if (usuario != null) {
+            model.addAttribute("emprestimos", emprestimoDAO.getEmprestimosPorUsuario(usuario.getId_us()));
+            return "emprestimo/meus-emprestimos";
+        }
+        return "redirect:/";
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        if (session == null || session.getAttribute("usuarioLogado") == null) {
-            resp.sendRedirect(req.getContextPath() + "/login");
-            return;
-        }
-
-        Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-
-        String acao = req.getParameter("acao");
-        if ("novo".equals(acao)) {
-            // Logic to create a new loan (similar to EmprestimoController's doPost for new loan)
-            String livroParam = req.getParameter("livro");
-            // The user making the request is the current logged in user
-            String usuarioParam = String.valueOf(usuarioLogado.getId_us());
-
-            if (livroParam == null || livroParam.isEmpty()) {
-                req.getSession().setAttribute("mensagem", "Erro: Selecione um livro para empréstimo.");
-                resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
-                return;
-            }
-
-            Emprestimo emprestimo = new Emprestimo();
-            emprestimo.setId_livro_emp(Integer.parseInt(livroParam));
-            emprestimo.setId_usuario_emp(Integer.parseInt(usuarioParam));
-            emprestimo.setData_emprestimo_emp(new Date(System.currentTimeMillis()));
-
-            Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DATE, 14);
-            emprestimo.setData_devolucao_prevista_emp(new Date(cal.getTimeInMillis()));
-            emprestimo.setStatus_emp("ATIVO");
-
-            String resultado = emprestimoDAO.inserir(emprestimo);
-            req.getSession().setAttribute("mensagem", resultado);
-            resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
-            return;
-        } else if ("devolver".equals(acao)) {
-            int id = Integer.parseInt(req.getParameter("id"));
-            String resultado = emprestimoDAO.devolver(id);
-            req.getSession().setAttribute("mensagem", resultado);
-            resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
-            return;
-        }
-
-        // If no specific action, just redirect to list
-        resp.sendRedirect(req.getContextPath() + "/meus-emprestimos");
+    @GetMapping("/devolver/{id}")
+    public String devolverMeuEmprestimo(@PathVariable int id, RedirectAttributes redirectAttributes) {
+        String resultado = emprestimoDAO.devolver(id);
+        redirectAttributes.addFlashAttribute("mensagem", resultado);
+        return "redirect:/meus-emprestimos";
     }
 }

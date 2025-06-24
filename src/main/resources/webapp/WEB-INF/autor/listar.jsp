@@ -31,8 +31,15 @@
             color: #555;
             font-weight: bold;
         }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
         tr:hover {
             background-color: #e2e6ea;
+        }
+        .actions {
+            white-space: nowrap;
+            width: 150px; /* Adjust as needed */
         }
         .actions a {
             text-decoration: none;
@@ -40,23 +47,53 @@
             border-radius: 4px;
             margin-right: 5px;
         }
-        .actions a.edit {
-            background-color: #ffc107;
+        .actions a:hover {
+            opacity: 0.8;
+        }
+        .actions a:first-child { /* Editar */
+            background-color: #ffc107; /* Yellow */
             color: #333;
         }
-        .actions a.delete {
-            background-color: #dc3545;
+        .actions a:last-child { /* Excluir */
+            background-color: #dc3545; /* Red */
             color: white;
         }
         .btn-novo {
             background-color: #007bff;
             color: white;
             padding: 10px 15px;
+            border: none;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 20px;
             display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .btn-novo:hover {
+            background-color: #0056b3;
+        }
+        p[style="color: green;"] {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        div[style="margin-top: 20px;"] a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        div[style="margin-top: 20px;"] a:hover {
+            background-color: #007bff;
+            color: white;
         }
     </style>
 </head>
@@ -65,9 +102,10 @@
 
 <c:if test="${not empty mensagem}">
     <p style="color: green;">${mensagem}</p>
+    <c:remove var="mensagem" scope="session"/>
 </c:if>
 
-<a href="${pageContext.request.contextPath}/autores/novo" class="btn-novo">Novo Autor</a>
+<a href="${pageContext.request.contextPath}/autores?acao=novo" class="btn-novo">Novo Autor</a>
 
 <table>
     <thead>
@@ -87,8 +125,8 @@
             <td>${autor.nacionalidade_aut}</td>
             <td>${autor.data_nascimento_aut}</td>
             <td class="actions">
-                <a href="${pageContext.request.contextPath}/autores/editar/${autor.id_aut}" class="edit">Editar</a>
-                <a href="${pageContext.request.contextPath}/autores/excluir/${autor.id_aut}" class="delete"
+                <a href="${pageContext.request.contextPath}/autores?acao=editar&id=${autor.id_aut}">Editar</a>
+                <a href="${pageContext.request.contextPath}/autores?acao=excluir&id=${autor.id_aut}"
                    onclick="return confirm('Tem certeza que deseja excluir este autor?')">Excluir</a>
             </td>
         </tr>

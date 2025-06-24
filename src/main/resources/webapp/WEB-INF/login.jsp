@@ -4,13 +4,8 @@
 <head>
     <title>Login - Sistema Biblioteca</title>
     <style>
-        .login-container {
-            width: 300px;
-            margin: 100px auto;
-        }
-        .error {
-            color: red;
-        }
+        .login-container { width: 300px; margin: 100px auto; }
+        .error { color: red; }
     </style>
 </head>
 <body>
