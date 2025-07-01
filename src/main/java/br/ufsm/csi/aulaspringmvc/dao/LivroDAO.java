@@ -127,15 +127,20 @@ public class LivroDAO {
     public String excluir(int id) {
         try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
             PreparedStatement stmt = conn.prepareStatement("DELETE FROM livro WHERE id_liv = ?");
-            stmt.setInt(1, id);
             int updateCount = stmt.executeUpdate();
             if (updateCount <= 0) {
                 return "Nenhum livro excluído";
             }
             return "Livro excluído com sucesso";
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
+            if ("23503".equals(ex.getSQLState())) {
+                return "Erro ao excluir: O livro está associado a um ou mais empréstimos.";
+            }
             ex.printStackTrace();
-            return "Erro ao excluir livro";
+            return "Erro ao excluir livro: " + ex.getMessage();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return "Erro ao excluir livro: " + e.getMessage();
         }
     }
 }

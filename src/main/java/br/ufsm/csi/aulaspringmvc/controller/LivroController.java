@@ -32,6 +32,7 @@ public class LivroController {
     public String salvarLivro(@ModelAttribute("livro") Livro livro, RedirectAttributes redirectAttributes) {
         String resultado;
         if (livro.getId_liv() == 0) {
+            livro.setDisponivel_liv(true);
             resultado = livroDAO.inserir(livro);
         } else {
             resultado = livroDAO.alterar(livro);

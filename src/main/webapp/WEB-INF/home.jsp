@@ -42,7 +42,7 @@
             <li><a href="${pageContext.request.contextPath}/emprestimos">Gerenciar Empréstimos</a></li>
         </c:if>
         <c:if test="${sessionScope.usuarioLogado.tipo_us eq 'USUARIO'}">
-            <li><a href="${pageContext.request.contextPath}/meus-emprestimos">Meus Empréstimos</a></li>
+            <li><a href="${pageContext.request.contextPath}/emprestimos">Meus Empréstimos</a></li>
         </c:if>
         <li><a href="${pageContext.request.contextPath}/logout">Sair</a></li>
     </ul>
