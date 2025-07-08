@@ -1,11 +1,11 @@
 package br.ufsm.csi.aulaspringmvc.dao;
-
-
 import br.ufsm.csi.aulaspringmvc.model.Autor;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 
+@Repository //padrao para DAOs - classe gerenciada pelo Spring - metodos de instancia (sem static)
 public class AutorDAO {
 
     public String inserir(Autor autor) {
@@ -58,7 +58,7 @@ public class AutorDAO {
         }
     }
 
-    public static String excluir(int id) {
+    public String excluir(int id) {
         try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
             PreparedStatement stmt = conn.prepareStatement("DELETE FROM autor WHERE id_aut = ?");
             stmt.setInt(1, id);
@@ -73,7 +73,7 @@ public class AutorDAO {
         }
     }
 
-    public static Autor getAutorById(int id) {
+    public Autor getAutorById(int id) {
         try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM autor WHERE id_aut = ?");
             stmt.setInt(1, id);

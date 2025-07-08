@@ -1,10 +1,11 @@
 package br.ufsm.csi.aulaspringmvc.dao;
-
 import br.ufsm.csi.aulaspringmvc.model.Usuario;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 
+@Repository //padrao para DAOs
 public class UsuarioDAO {
     public Usuario autenticar(String email, String senha) {
         try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {

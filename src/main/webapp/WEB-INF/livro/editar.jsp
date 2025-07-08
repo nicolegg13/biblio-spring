@@ -64,6 +64,7 @@
 
 <form action="${pageContext.request.contextPath}/livros/salvar" method="post">
     <input type="hidden" name="id_liv" value="${livro.id_liv}">
+    <input type="hidden" name="disponivel_liv" value="${livro.disponivel_liv}">
 
     <div>
         <label>Título:</label>

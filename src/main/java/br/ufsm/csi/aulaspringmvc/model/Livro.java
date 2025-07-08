@@ -7,6 +7,7 @@ public class Livro {
     private int ano_publicacao_liv;
     private int id_autor_liv;
     private boolean disponivel_liv;
+    private boolean ativo_liv;
     //extras - para exibir
     private String nome_autor;
     // Getters e Setters
@@ -22,6 +23,8 @@ public class Livro {
     public void setId_autor_liv(int id_autor_liv) { this.id_autor_liv = id_autor_liv; }
     public boolean isDisponivel_liv() { return disponivel_liv; }
     public void setDisponivel_liv(boolean disponivel_liv) { this.disponivel_liv = disponivel_liv; }
+    public boolean isAtivo_liv() { return ativo_liv; }
+    public void setAtivo_liv(boolean ativo_liv) { this.ativo_liv = ativo_liv; }
 
     public String getNome_autor() { return nome_autor; }
     public void setNome_autor(String nome_autor) { this.nome_autor = nome_autor; }

@@ -1,11 +1,18 @@
 package br.ufsm.csi.aulaspringmvc.dao;
-
-
 import br.ufsm.csi.aulaspringmvc.model.Emprestimo;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * executa os comandos sql e altera no banco
+ * recebe objeto Emprestimo pronto e validado
+ * faz o insert/update/delete no banco de dados
+ * salva o que recebe
+ */
+
+@Repository //padrao para DAOs
 public class EmprestimoDAO {
     public String inserir(Emprestimo emprestimo) {
         try (Connection conn = ConectarBancoDados.conectarBancoPostgres()) {
@@ -117,5 +124,21 @@ public class EmprestimoDAO {
             e.printStackTrace();
             return "Erro ao registrar devolução";
         }
+    }
+
+    //verifica se um livro tem emprestimos ativos antes de excluir (inativar)
+    public boolean temEmprestimosAtivos(int idLivro) {
+        String sql = "SELECT count(*) FROM emprestimo WHERE id_livro_emp = ? AND status_emp = 'ATIVO'";
+        try(Connection conn = ConectarBancoDados.conectarBancoPostgres();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, idLivro);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

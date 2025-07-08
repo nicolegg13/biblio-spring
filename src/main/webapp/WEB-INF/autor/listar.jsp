@@ -63,10 +63,6 @@
 <body>
 <h1>Autores</h1>
 
-<c:if test="${not empty mensagem}">
-    <p style="color: green;">${mensagem}</p>
-</c:if>
-
 <a href="${pageContext.request.contextPath}/autores/novo" class="btn-novo">Novo Autor</a>
 
 <table>
@@ -87,14 +83,34 @@
             <td>${autor.nacionalidade_aut}</td>
             <td>${autor.data_nascimento_aut}</td>
             <td class="actions">
-                <a href="${pageContext.request.contextPath}/autores/editar/${autor.id_aut}" class="edit">Editar</a>
-                <a href="${pageContext.request.contextPath}/autores/excluir/${autor.id_aut}" class="delete"
-                   onclick="return confirm('Tem certeza que deseja excluir este autor?')">Excluir</a>
+                <form action="${pageContext.request.contextPath}/autores/editar/${autor.id_aut}" method="get" style="display:inline;">
+                    <button type="submit" class="edit">Editar</button>
+                </form>
+
+                <form action="${pageContext.request.contextPath}/autores/excluir/${autor.id_aut}" method="post" style="display:inline;">
+                    <button type="submit" class="delete" onclick="return confirm('Tem certeza que deseja excluir este autor?')">Excluir</button>
+                </form>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+<c:if test="${not empty mensagem}">
+    <c:choose>
+        <c:when test="${mensagem.startsWith('Erro')}">
+<%--            erro--%>
+            <p style="color: #8f0008; background-color: #FFBABA; border: 1px solid; padding: 10px; border-radius: 5px;">
+                    ${mensagem}
+            </p>
+        </c:when>
+        <c:otherwise>
+<%--            sucesso--%>
+            <p style="color: #4F8A10; background-color: #DFF2BF; border: 1px solid; padding: 10px; border-radius: 5px;">
+                    ${mensagem}
+            </p>
+        </c:otherwise>
+    </c:choose>
+</c:if>
 
 <div style="margin-top: 20px;">
     <a href="${pageContext.request.contextPath}/home">Voltar para Home</a>

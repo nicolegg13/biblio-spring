@@ -82,12 +82,30 @@
             <td>${livro.nome_autor}</td>
             <td>${livro.disponivel_liv ? "Sim" : "Não"}</td>
             <td class="action-links">
-                <a href="${pageContext.request.contextPath}/livros/editar/${livro.id_liv}" class="edit">Editar</a>
-                <a href="${pageContext.request.contextPath}/livros/excluir/${livro.id_liv}" class="delete"
-                   onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                <form action="${pageContext.request.contextPath}/livros/editar/${livro.id_liv}" method="get" style="display:inline;">
+                    <button type="submit" class="edit">Editar</button>
+                </form>
+
+                <form action="${pageContext.request.contextPath}/livros/excluir/${livro.id_liv}" method="post" style="display:inline;">
+                    <button type="submit" class="delete" onclick="return confirm('Tem certeza que deseja excluir este livro?')">Excluir</button>
+                </form>
             </td>
         </tr>
     </c:forEach>
+    <c:if test="${not empty mensagem}">
+        <c:choose>
+            <c:when test="${mensagem.startsWith('Erro')}">
+                <p style="color: #D8000C; background-color: #FFBABA; border: 1px solid; padding: 10px; border-radius: 5px;">
+                        ${mensagem}
+                </p>
+            </c:when>
+            <c:otherwise>
+                <p style="color: #4F8A10; background-color: #DFF2BF; border: 1px solid; padding: 10px; border-radius: 5px;">
+                        ${mensagem}
+                </p>
+            </c:otherwise>
+        </c:choose>
+    </c:if>
 </table>
 <a href="${pageContext.request.contextPath}/home" class="back-link">Voltar</a>
 </body>

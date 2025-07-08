@@ -2,6 +2,8 @@ package br.ufsm.csi.aulaspringmvc.controller;
 
 import br.ufsm.csi.aulaspringmvc.dao.AutorDAO;
 import br.ufsm.csi.aulaspringmvc.model.Autor;
+import br.ufsm.csi.aulaspringmvc.service.AutorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +13,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/autores")
 public class AutorController {
 
-    private final AutorDAO autorDAO = new AutorDAO();
+    private final AutorService autorService;
+
+    @Autowired
+    public AutorController(AutorService autorService) {
+        this.autorService = autorService;
+    }
 
     @GetMapping
     public String getAutores(Model model) {
-        model.addAttribute("autores", autorDAO.getAutores());
+        model.addAttribute("autores", autorService.getAutores());
         return "autor/listar";
     }
 
@@ -27,26 +34,21 @@ public class AutorController {
 
     @PostMapping("/salvar")
     public String salvarAutor(@ModelAttribute("autor") Autor autor, RedirectAttributes redirectAttributes) {
-        String resultado;
-        if (autor.getId_aut() == 0) {
-            resultado = autorDAO.inserir(autor);
-        } else {
-            resultado = autorDAO.alterar(autor);
-        }
+        String resultado = autorService.salvar(autor);
         redirectAttributes.addFlashAttribute("mensagem", resultado);
         return "redirect:/autores";
     }
 
     @GetMapping("/editar/{id}")
     public String showEditarAutorForm(@PathVariable int id, Model model) {
-        Autor autor = autorDAO.getAutorById(id);
+        Autor autor = autorService.getAutorById(id);
         model.addAttribute("autor", autor);
         return "autor/editar";
     }
 
-    @GetMapping("/excluir/{id}")
+    @PostMapping("/excluir/{id}")
     public String excluirAutor(@PathVariable int id, RedirectAttributes redirectAttributes) {
-        String resultado = autorDAO.excluir(id);
+        String resultado = autorService.excluir(id);
         redirectAttributes.addFlashAttribute("mensagem", resultado);
         return "redirect:/autores";
     }

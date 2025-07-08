@@ -1,8 +1,8 @@
 package br.ufsm.csi.aulaspringmvc.controller;
-
 import br.ufsm.csi.aulaspringmvc.model.Usuario;
 import br.ufsm.csi.aulaspringmvc.service.LoginService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +12,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class LoginController {
 
-    private final LoginService loginService = new LoginService();
+    private final LoginService loginService;
+    @Autowired
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
 
     @GetMapping("/")
     public String showLoginPage() {
@@ -21,14 +25,14 @@ public class LoginController {
 
     @PostMapping("/login")
     public String handleLogin(@RequestParam String email, @RequestParam String senha, HttpSession session, RedirectAttributes redirectAttributes) {
-        Usuario usuario = loginService.autenticar(email, senha);
-        if (usuario != null) {
-            session.setAttribute("usuarioLogado", usuario);
+        Usuario usuarioAut = loginService.autenticar(email, senha);
+        if (usuarioAut != null) { //controller gerencia a sessao
+            session.setAttribute("usuarioLogado", usuarioAut);
             session.setMaxInactiveInterval(3600); // 60 minutes
-            if ("ADMIN".equals(usuario.getTipo_us())) {
+            if ("ADMIN".equals(usuarioAut.getTipo_us())) {
                 return "redirect:/home";
             } else {
-                return "redirect:/meus-emprestimos";
+                return "redirect:/emprestimos";
             }
         } else {
             redirectAttributes.addFlashAttribute("erro", "Email ou senha incorretos");
@@ -45,7 +49,6 @@ public class LoginController {
         return "redirect:/";
     }
 
-    //@RequestMapping("/logout")
     @GetMapping("/logout")
     public String handleLogout(HttpSession session) {
         session.invalidate();

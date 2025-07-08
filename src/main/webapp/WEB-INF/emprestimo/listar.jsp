@@ -44,10 +44,6 @@
 
 <h1>Empréstimos</h1>
 
-<c:if test="${not empty mensagem}">
-    <p style="color: green;">${mensagem}</p>
-</c:if>
-
 <a href="${pageContext.request.contextPath}/emprestimos/novo">Novo Empréstimo</a>
 
 <table>
@@ -70,13 +66,32 @@
             <td>${emp.status_emp}</td>
             <td>
                 <c:if test="${emp.status_emp eq 'ATIVO'}">
-                    <a href="${pageContext.request.contextPath}/emprestimos/devolver/${emp.id_emp}" class="devolver-btn">Devolver</a>
+<%--                    <a href="${pageContext.request.contextPath}/emprestimos/devolver/${emp.id_emp}" class="devolver-btn">Devolver</a>--%>
+                    <form action="${pageContext.request.contextPath}/emprestimos/devolver/${emp.id_emp}" method="post" style="display:inline;">
+                        <button type="submit" class="devolver-btn" onclick="return confirm('Tem certeza que deseja devolver esse livro?')">
+                            Devolver
+                        </button>
+                    </form>
                 </c:if>
             </td>
         </tr>
     </c:forEach>
 </table>
+<c:if test="${not empty mensagem}">
+    <c:choose>
+        <c:when test="${mensagem.startsWith('Erro')}">
+            <p style="color: #8f0008; background-color: #FFBABA; border: 1px solid; padding: 10px; border-radius: 5px;">
+                    ${mensagem}
+            </p>
+        </c:when>
+        <c:otherwise>
+            <p style="color: #4F8A10; background-color: #DFF2BF; border: 1px solid; padding: 10px; border-radius: 5px;">
+                    ${mensagem}
+            </p>
+        </c:otherwise>
+    </c:choose>
+</c:if>
 
-<a href="${pageContext.request.contextPath}/home" class="back-link">Voltar</a>
+<a href="${pageContext.request.contextPath}/home" class="back-link">Voltar</a> <%-- se for usuario, volta para a pagina de login (nao tem acesso a home) --%>
 </body>
 </html>
