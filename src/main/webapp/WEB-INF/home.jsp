@@ -3,31 +3,7 @@
 <html>
 <head>
     <title>Home - Sistema Biblioteca</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1 {
-            color: #007bff;
-        }
-        nav a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            padding: 8px 12px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        nav a:hover {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 

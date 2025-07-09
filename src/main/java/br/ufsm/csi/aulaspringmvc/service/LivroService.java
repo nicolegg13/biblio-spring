@@ -52,7 +52,7 @@ public class LivroService {
     public String excluir(int id) {
         //verfifica se o livro tem emprestimos ativos
         if(emprestimoDAO.temEmprestimosAtivos(id)) {
-            return "O livro não pode ser excluído pois tem empréstimos ativos";
+            return "Erro: O livro não pode ser excluído pois tem empréstimos ativos";
         }
         return livroDAO.inativar(id);
     }

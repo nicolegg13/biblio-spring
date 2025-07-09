@@ -3,59 +3,7 @@
 <html>
 <head>
     <title>Novo Empréstimo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1 {
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            margin-top: 20px;
-        }
-        div {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button[type="submit"] {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #dc3545;
-            padding: 10px 15px;
-            border: 1px solid #dc3545;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 <h1>Novo Empréstimo</h1>
@@ -81,8 +29,8 @@
         </select>
     </div>
 
-    <button type="submit">Registrar Empréstimo</button>
-    <a href="${pageContext.request.contextPath}/emprestimos">Cancelar</a>
+    <button type="submit" class="btn btn-save">Registrar Empréstimo</button>
+    <a href="${pageContext.request.contextPath}/emprestimos" class="btn btn-cancel">Cancelar</a>
 </form>
 </body>
 </html>

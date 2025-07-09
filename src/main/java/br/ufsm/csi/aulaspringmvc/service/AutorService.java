@@ -24,7 +24,11 @@ public class AutorService {
     }
 
     public String excluir(int id) {
-        return autorDAO.excluir(id);
+        String resultado = autorDAO.excluir(id);
+        if (resultado.contains("viola restrição de chave estrangeira")) {
+            return "Erro: O autor não pode ser excluído pois possui livros cadastrados";
+        }
+        return resultado;
     }
 
     public Autor getAutorById(int id) {

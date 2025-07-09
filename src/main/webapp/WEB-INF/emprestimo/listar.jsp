@@ -3,48 +3,13 @@
 <html>
 <head>
     <title>Empréstimos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1 {
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #e9ecef;
-            color: #555;
-            font-weight: bold;
-        }
-        .devolver-btn {
-            background-color: #28a745;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
 <h1>Empréstimos</h1>
 
-<a href="${pageContext.request.contextPath}/emprestimos/novo">Novo Empréstimo</a>
+<a href="${pageContext.request.contextPath}/emprestimos/novo" class="btn btn-primary">Novo Empréstimo</a>
 
 <table>
     <tr>
@@ -66,12 +31,8 @@
             <td>${emp.status_emp}</td>
             <td>
                 <c:if test="${emp.status_emp eq 'ATIVO'}">
-<%--                    <a href="${pageContext.request.contextPath}/emprestimos/devolver/${emp.id_emp}" class="devolver-btn">Devolver</a>--%>
                     <form action="${pageContext.request.contextPath}/emprestimos/devolver/${emp.id_emp}" method="post" style="display:inline;">
-                        <button type="submit" class="devolver-btn" onclick="return confirm('Tem certeza que deseja devolver esse livro?')">
-                            Devolver
-                        </button>
-                    </form>
+                        <button type="submit" class="btn btn-sm btn-warning" onclick="return confirm('Confirmar devolução?')">Devolver</button> </form>
                 </c:if>
             </td>
         </tr>
@@ -80,15 +41,10 @@
 <c:if test="${not empty mensagem}">
     <c:choose>
         <c:when test="${mensagem.startsWith('Erro')}">
-            <p style="color: #8f0008; background-color: #FFBABA; border: 1px solid; padding: 10px; border-radius: 5px;">
-                    ${mensagem}
-            </p>
+            <p class="msg-feedback msg-erro">${mensagem}</p>
         </c:when>
         <c:otherwise>
-            <p style="color: #4F8A10; background-color: #DFF2BF; border: 1px solid; padding: 10px; border-radius: 5px;">
-                    ${mensagem}
-            </p>
-        </c:otherwise>
+            <p class="msg-feedback msg-sucesso">${mensagem}</p> </c:otherwise>
     </c:choose>
 </c:if>
 
